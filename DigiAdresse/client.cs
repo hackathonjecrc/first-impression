@@ -42,13 +42,7 @@ namespace DigiAdresse
             Application.Exit();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            if(WindowState == FormWindowState.Normal)
-            {
-                WindowState = FormWindowState.Minimized;
-            }
-        }
+       
 
         private void client_MouseDown(object sender, MouseEventArgs e)
         {
@@ -70,6 +64,42 @@ namespace DigiAdresse
         private void client_MouseUp(object sender, MouseEventArgs e)
         {
             _dragging = false;
+        }
+
+        private void title_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Signout_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click_1(object sender, EventArgs e)
+        {
+
+            if (WindowState == FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Minimized;
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                WindowState = FormWindowState.Normal;
+            }
         }
     }
 }
