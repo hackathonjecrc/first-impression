@@ -13,7 +13,7 @@ namespace DigiAdresse
 {
     public partial class Newdb : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hp\Documents\login_database.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hp\Documents\digitaluid.mdf;Integrated Security=True;Connect Timeout=30");
 
         public Newdb()
         {
@@ -113,6 +113,7 @@ namespace DigiAdresse
             this.Hide();
             client c1 = new client();
             c1.ShowDialog();
+            
         }
 
         private void button5_Click(object sender, EventArgs e)

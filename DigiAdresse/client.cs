@@ -152,7 +152,7 @@ namespace DigiAdresse
         private void Existing_Click(object sender, EventArgs e)
         {
             this.Hide();
-            transaction t1 = new transaction();
+            Existing t1 = new Existing();
             t1.ShowDialog();
         }
 
@@ -166,38 +166,49 @@ namespace DigiAdresse
            
 
         }
-
+        SqlConnection tr = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hp\Documents\login_database.mdf;Integrated Security=True;Connect Timeout=30");
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             
 
             if (comboBox1.Text == "Sender UID")
             {
-                SqlConnection tr = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hp\Documents\login_database.mdf;Integrated Security=True;Connect Timeout=30");
-                SqlDataAdapter sda = new SqlDataAdapter("Select RecieverUID, Reciever Pincode, Reciever Address ,Reciever Name, Sender UID ,Sender Pincode ,Sender Address ,Sender Name FROM Recieverdb WHERE Sender UID like '" + textBox1.Text+"%'  ", tr);
+                
+                SqlDataAdapter sda = new SqlDataAdapter("Select RecieverUID, RecieverPincode, RecieverAddress ,RecieverName, SenderUID ,SenderPincode ,SenderAddress ,SenderName,DateandTime FROM Recieverdb WHERE SenderUID like '" + textBox1.Text+"%'  ", tr);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
+                dataGridView1.DataSource = dt;
             }
             else if(comboBox1.Text =="Sender Pincode")
             {
-                SqlConnection tr = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hp\Documents\login_database.mdf;Integrated Security=True;Connect Timeout=30");
-                SqlDataAdapter sda = new SqlDataAdapter("Select RecieverUID, Reciever Pincode, Reciever Address ,Reciever Name, Sender UID ,Sender Pincode ,Sender Address ,Sender Name FROM Recieverdb WHERE Sender Pincode like '" + textBox1.Text + "%'", tr);
+                
+                SqlDataAdapter sda = new SqlDataAdapter("Select RecieverUID, RecieverPincode, RecieverAddress ,RecieverName, SenderUID ,SenderPincode ,SenderAddress ,SenderName,DateandTime FROM Recieverdb WHERE SenderPincode LIKE '" + textBox1.Text + "%'", tr);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
+                dataGridView1.DataSource = dt;
             }
             else if(comboBox1.Text == "Reciever UID")
             {
-                SqlConnection tr = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hp\Documents\login_database.mdf;Integrated Security=True;Connect Timeout=30");
-                SqlDataAdapter sda = new SqlDataAdapter("Select RecieverUID, Reciever Pincode, Reciever Address ,Reciever Name, Sender UID ,Sender Pincode ,Sender Address ,Sender Name FROM Recieverdb WHERE RecieverUID  like '" + textBox1.Text + "%'", tr);
+               
+                SqlDataAdapter sda = new SqlDataAdapter("Select RecieverUID, RecieverPincode, RecieverAddress ,RecieverName, SenderUID ,SenderPincode ,SenderAddress ,SenderName,DateandTime FROM Recieverdb WHERE RecieverUID  like '" + textBox1.Text + "%'", tr);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
+                dataGridView1.DataSource = dt;
             }
+        
             else if(comboBox1.Text =="Reciever Pincode")
             {
-                SqlConnection tr = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hp\Documents\login_database.mdf;Integrated Security=True;Connect Timeout=30");
-                SqlDataAdapter sda = new SqlDataAdapter("Select RecieverUID, Reciever Pincode, Reciever Address ,Reciever Name, Sender UID ,Sender Pincode ,Sender Address ,Sender Name FROM Recieverdb WHERE Reciever Pincode like '" + textBox1.Text + "%'", tr);
+                SqlDataAdapter sda = new SqlDataAdapter("Select RecieverUID, RecieverPincode, RecieverAddress ,RecieverName, SenderUID ,SenderPincode ,SenderAddress ,SenderName,DateandTime FROM Recieverdb WHERE RecieverPincode like '" + textBox1.Text + "%'", tr);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            else if (comboBox1.Text == "Date and Time")
+            {
+                SqlDataAdapter sda = new SqlDataAdapter("Select RecieverUID, RecieverPincode, RecieverAddress ,RecieverName, SenderUID ,SenderPincode ,SenderAddress ,SenderName,DateandTime FROM Recieverdb WHERE DateandTime like '" + textBox1.Text + "%'", tr);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                dataGridView1.DataSource = dt;
             }
         }
 
@@ -208,6 +219,15 @@ namespace DigiAdresse
             DataTable dt = new DataTable();
             sda.Fill(dt);
             dataGridView1.DataSource = dt;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Webbrowser w1 = new Webbrowser();
+            w1.ShowDialog();
+            
+            
         }
     }
     

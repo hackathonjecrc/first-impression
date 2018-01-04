@@ -36,13 +36,14 @@
             this.title = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Signout = new System.Windows.Forms.Button();
             this.Existing = new System.Windows.Forms.Button();
+            this.Signout = new System.Windows.Forms.Button();
             this.New = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -72,6 +73,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(20, 20);
             this.button2.TabIndex = 3;
+            this.button2.TabStop = false;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
@@ -86,6 +88,7 @@
             this.minimize.Name = "minimize";
             this.minimize.Size = new System.Drawing.Size(20, 20);
             this.minimize.TabIndex = 3;
+            this.minimize.TabStop = false;
             this.minimize.UseVisualStyleBackColor = true;
             this.minimize.Click += new System.EventHandler(this.minimize_Click);
             // 
@@ -99,6 +102,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(20, 20);
             this.button1.TabIndex = 3;
+            this.button1.TabStop = false;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -124,6 +128,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.Existing);
             this.panel2.Controls.Add(this.Signout);
             this.panel2.Controls.Add(this.New);
@@ -132,27 +137,27 @@
             this.panel2.Size = new System.Drawing.Size(1372, 44);
             this.panel2.TabIndex = 1;
             // 
-            // Signout
-            // 
-            this.Signout.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Signout.Location = new System.Drawing.Point(1255, 3);
-            this.Signout.Name = "Signout";
-            this.Signout.Size = new System.Drawing.Size(95, 38);
-            this.Signout.TabIndex = 3;
-            this.Signout.Text = "Signout";
-            this.Signout.UseVisualStyleBackColor = true;
-            this.Signout.Click += new System.EventHandler(this.Signout_Click);
-            // 
             // Existing
             // 
             this.Existing.ForeColor = System.Drawing.Color.Black;
             this.Existing.Location = new System.Drawing.Point(113, 3);
             this.Existing.Name = "Existing";
             this.Existing.Size = new System.Drawing.Size(95, 38);
-            this.Existing.TabIndex = 4;
+            this.Existing.TabIndex = 2;
             this.Existing.Text = "Existing";
             this.Existing.UseVisualStyleBackColor = true;
             this.Existing.Click += new System.EventHandler(this.Existing_Click);
+            // 
+            // Signout
+            // 
+            this.Signout.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Signout.Location = new System.Drawing.Point(1255, 3);
+            this.Signout.Name = "Signout";
+            this.Signout.Size = new System.Drawing.Size(95, 38);
+            this.Signout.TabIndex = 2;
+            this.Signout.Text = "Signout";
+            this.Signout.UseVisualStyleBackColor = true;
+            this.Signout.Click += new System.EventHandler(this.Signout_Click);
             // 
             // New
             // 
@@ -160,7 +165,7 @@
             this.New.Location = new System.Drawing.Point(12, 3);
             this.New.Name = "New";
             this.New.Size = new System.Drawing.Size(95, 38);
-            this.New.TabIndex = 2;
+            this.New.TabIndex = 0;
             this.New.Text = "New";
             this.New.UseVisualStyleBackColor = true;
             this.New.Click += new System.EventHandler(this.New_Click);
@@ -179,7 +184,7 @@
             this.comboBox1.Location = new System.Drawing.Point(407, 151);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(223, 21);
-            this.comboBox1.TabIndex = 2;
+            this.comboBox1.TabIndex = 4;
             this.comboBox1.Text = "Enter to Search";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -194,14 +199,14 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1123, 326);
-            this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.TabIndex = 6;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(689, 152);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(361, 20);
-            this.textBox1.TabIndex = 4;
+            this.textBox1.TabIndex = 6;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button3
@@ -210,10 +215,20 @@
             this.button3.Location = new System.Drawing.Point(171, 144);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(140, 35);
-            this.button3.TabIndex = 5;
+            this.button3.TabIndex = 3;
             this.button3.Text = "show all";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(214, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(87, 37);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Track Consignment";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // client
             // 
@@ -262,5 +277,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

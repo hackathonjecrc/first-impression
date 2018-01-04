@@ -39,7 +39,7 @@ namespace DigiAdresse
                 return;
             }
             SqlConnection scn = new SqlConnection();
-            scn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hp\Documents\login_database.mdf;Integrated Security=True;Connect Timeout=30";
+            scn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hp\Documents\digitaluid.mdf;Integrated Security=True;Connect Timeout=30";
             SqlCommand scmd = new SqlCommand("select count (*) as cnt from login where Username=@usr and Password=@pwd", scn);
             scmd.Parameters.Clear();
             scmd.Parameters.AddWithValue("@usr", txtpassword.Text);
