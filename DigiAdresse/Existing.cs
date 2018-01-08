@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace DigiAdresse
 {
     public partial class Existing : Form
     {
         public static SqlConnection duid = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hp\Documents\login_database.mdf;Integrated Security=True;Connect Timeout=30");
-
+        public static string Myconnectionstring = "server=Evil-Hunter;user id=root;Pwd=Root;database=digital";
+        MySqlConnection duid1 = new MySqlConnection(Myconnectionstring);
 
         public Existing()
         {
@@ -33,37 +35,53 @@ namespace DigiAdresse
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            duid.Open();
+            MySqlConnection duid1 = new MySqlConnection(Myconnectionstring);
+            duid1.Open();
 
-            SqlCommand cmd = duid.CreateCommand();
+            try
+            {
+                MySqlCommand cmd = duid1.CreateCommand();
 
-            cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.Text;
 
-            cmd.CommandText = "select * from Digitaluid ";
+                cmd.CommandText = "select * from all_india_pincode_data_18082017 ";
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-            DataTable dt = new DataTable();
+                DataTable dt = new DataTable();
 
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
-            da.Fill(dt);
+                da.Fill(dt);
 
-            foreach (DataRow dr in dt.Rows)
+                foreach (DataRow dr in dt.Rows)
+
+                {
+
+                    Receiverduid.Items.Add(dr["pincode"].ToString());
+
+
+
+                    senderduid.Items.Add(dr["pincode"].ToString());
+
+                }
+
+            }
+            catch
+            {
+                throw;
+            }
+            finally
 
             {
-
-                Receiverduid.Items.Add(dr["Digitaluid"].ToString());
-
-
-
-                senderduid.Items.Add(dr["Digitaluid"].ToString());
-
+                if(duid1.State==ConnectionState.Open)
+                {
+                    duid1.Close();
+                }
             }
 
 
-
-            duid.Close();
+            
         }
 
         private void senderduid_SelectedIndexChanged(object sender, EventArgs e)
