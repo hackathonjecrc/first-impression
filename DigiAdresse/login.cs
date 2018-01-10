@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using MySql.Data.MySqlClient;
 
 
 namespace DigiAdresse
@@ -38,33 +38,44 @@ namespace DigiAdresse
                 lbl_Msg.Text = ("ALL 3 ATTEMPTS HAVE FAILED - CONTACT ADMIN");
                 return;
             }
-            SqlConnection scn = new SqlConnection();
-            scn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hp\Documents\digitaluid.mdf;Integrated Security=True;Connect Timeout=30";
-            SqlCommand scmd = new SqlCommand("select count (*) as cnt from login where Username=@usr and Password=@pwd", scn);
-            scmd.Parameters.Clear();
-            scmd.Parameters.AddWithValue("@usr", txtpassword.Text);
-            scmd.Parameters.AddWithValue("@pwd", txtusername.Text);
-            scn.Open();
-            if (scmd.ExecuteScalar().ToString() == "1")
+            try
             {
-                MessageBox.Show("YOU ARE GRANTED WITH ACCESS");
-                this.Hide();
-                client c1 = new client();
-                c1.ShowDialog();
+                MySqlConnection scn = new MySqlConnection();
+                scn.ConnectionString = @"server=Evil-Hunter;database=digital;uid=root;pwd=Root;";
+                MySqlCommand scmd = new MySqlCommand("select * from login1 where Username='" + this.txtusername.Text + "' and Password='" + this.txtpassword.Text + "'", scn);
+
+                scn.Open();
+                MySqlDataReader myreader;
+                myreader = scmd.ExecuteReader();
+                int count = 0;
+                while (myreader.Read())
+                {
+                    count = count + 1;
+                }
+                if (count == 1)
+                {
+                    MessageBox.Show("Username and Password are correct");
+                    this.Hide();
+                    client c1 = new client();
+                    c1.ShowDialog();
+                }
+                else if (count > 1)
+                {
+                    MessageBox.Show("Incorrect data");
+                }
+                else
+                {
+                    MessageBox.Show("Incoreect");
+
+                }
+                scn.Close();
             }
-            else
+            catch(Exception ex)
             {
-
-
-                MessageBox.Show("YOU ARE NOT GRANTED WITH ACCESS");
-                lbl_Msg.Text = ("You Have Only " + Convert.ToString(attempt) + " Attempt Left To Try");
-                --attempt;
-                txtpassword.Clear();
-                txtusername.Clear();
+                MessageBox.Show(ex.Message);
             }
-            scn.Close();
         }
-
+            
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();

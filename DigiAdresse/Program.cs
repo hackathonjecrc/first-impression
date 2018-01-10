@@ -16,7 +16,7 @@ namespace DigiAdresse
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Existing());
+            Application.Run(new login());
         }
     }
 }

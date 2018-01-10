@@ -71,5 +71,10 @@ namespace DigiAdresse
         {
             Application.Exit();
         }
+
+        private void Sourcelogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

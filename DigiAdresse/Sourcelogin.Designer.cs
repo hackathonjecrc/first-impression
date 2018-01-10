@@ -135,6 +135,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Sourcelogin";
             this.Text = "Sourcelogin";
+            this.Load += new System.EventHandler(this.Sourcelogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

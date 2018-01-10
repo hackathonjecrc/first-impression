@@ -15,7 +15,7 @@ namespace DigiAdresse
     public partial class Existing : Form
     {
         public static SqlConnection duid = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hp\Documents\login_database.mdf;Integrated Security=True;Connect Timeout=30");
-        public static string Myconnectionstring = "server=Evil-Hunter;user id=root;Pwd=Root;database=digital";
+        public static string Myconnectionstring = "server=Evil-Hunter;user id=root;pwd=Root;database=digital";
         MySqlConnection duid1 = new MySqlConnection(Myconnectionstring);
 
         public Existing()
@@ -44,7 +44,7 @@ namespace DigiAdresse
 
                 cmd.CommandType = CommandType.Text;
 
-                cmd.CommandText = "select * from all_india_pincode_data_18082017 ";
+                cmd.CommandText = "select * from book3 ";
 
                 cmd.ExecuteNonQuery();
 
@@ -58,11 +58,11 @@ namespace DigiAdresse
 
                 {
 
-                    Receiverduid.Items.Add(dr["pincode"].ToString());
+                    Receiverduid.Items.Add(dr["IFSC"].ToString());
 
 
 
-                    senderduid.Items.Add(dr["pincode"].ToString());
+                    senderduid.Items.Add(dr["IFSC"].ToString());
 
                 }
 
@@ -74,14 +74,15 @@ namespace DigiAdresse
             finally
 
             {
-                if(duid1.State==ConnectionState.Open)
+                if (duid1.State == ConnectionState.Open)
                 {
                     duid1.Close();
                 }
             }
 
 
-            
+
+
         }
 
         private void senderduid_SelectedIndexChanged(object sender, EventArgs e)
