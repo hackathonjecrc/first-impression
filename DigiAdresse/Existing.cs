@@ -87,19 +87,19 @@ namespace DigiAdresse
 
         private void senderduid_SelectedIndexChanged(object sender, EventArgs e)
         {
-            duid.Open();
+            duid1.Open();
 
-            SqlCommand cmd = duid.CreateCommand();
+            MySqlCommand cmd = duid1.CreateCommand();
 
             cmd.CommandType = CommandType.Text;
 
-            cmd.CommandText = "select * from Digitaluid where Digitaluid='" + senderduid.SelectedItem.ToString() + "'";
+            cmd.CommandText = "select * from Book3 where IFSC='" + senderduid.SelectedItem.ToString() + "'";
 
             cmd.ExecuteNonQuery();
 
             DataTable dt = new DataTable();
 
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
             da.Fill(dt);
 
@@ -107,11 +107,11 @@ namespace DigiAdresse
 
             {
 
-                senderpincode.Text = dr["Sender's Pincode"].ToString();
+                textBox3.Text = dr["﻿BANK"].ToString();
 
-                senderaddress.Text = dr["Sender's Address"].ToString();
+                senderaddress.Text = dr["ADDRESS"].ToString();
 
-                textBox1.Text = dr["Digitaluid"].ToString();
+                textBox1.Text = dr["BRANCH"].ToString();
 
                 textBox9.Text = dateTimePicker1.Value.ToString();
 
@@ -121,7 +121,7 @@ namespace DigiAdresse
 
 
 
-            duid.Close();
+            duid1.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -135,19 +135,19 @@ namespace DigiAdresse
 
         private void Receiverduid_SelectedIndexChanged(object sender, EventArgs e)
         {
-              duid.Open();
+              duid1.Open();
 
-            SqlCommand cmd = duid.CreateCommand();
+            MySqlCommand cmd = duid1.CreateCommand();
 
             cmd.CommandType = CommandType.Text;
 
-            cmd.CommandText = "select * from Digitaluid where Digitaluid='" + Receiverduid.SelectedItem.ToString() + "'";
+            cmd.CommandText = "select * from Book3 where Name='" + Receiverduid.SelectedItem.ToString() + "'";
 
             cmd.ExecuteNonQuery();
 
             DataTable dt = new DataTable();
 
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
             da.Fill(dt);
 
@@ -155,11 +155,11 @@ namespace DigiAdresse
 
             {
 
-                recieverpincode.Text = dr["Sender's Pincode"].ToString();
+                recieverpincode.Text = dr["NAME"].ToString();
 
-                recieveraddress.Text = dr["Sender's Address"].ToString();
+                recieveraddress.Text = dr["ADDRESS"].ToString();
 
-                textBox3.Text = dr["Digitaluid"].ToString();
+                textBox3.Text = dr["BRANCH"].ToString();
 
                 textBox9.Text = dateTimePicker1.Value.ToString();
 
@@ -194,6 +194,11 @@ namespace DigiAdresse
             MessageBox.Show("Record inserted Succesfully");
 
             duid.Close();
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
