@@ -30,15 +30,15 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.senderduid = new System.Windows.Forms.ComboBox();
-            this.senderpincode = new System.Windows.Forms.TextBox();
+            this.senderbank = new System.Windows.Forms.TextBox();
             this.senderaddress = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textIFSC1 = new System.Windows.Forms.TextBox();
             this.Receiverduid = new System.Windows.Forms.ComboBox();
-            this.recieverpincode = new System.Windows.Forms.TextBox();
+            this.recieverbank = new System.Windows.Forms.TextBox();
             this.recieveraddress = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textIFSC2 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -74,12 +74,12 @@
             this.senderduid.TabIndex = 1;
             this.senderduid.SelectedIndexChanged += new System.EventHandler(this.senderduid_SelectedIndexChanged);
             // 
-            // senderpincode
+            // senderbank
             // 
-            this.senderpincode.Location = new System.Drawing.Point(289, 185);
-            this.senderpincode.Name = "senderpincode";
-            this.senderpincode.Size = new System.Drawing.Size(327, 20);
-            this.senderpincode.TabIndex = 2;
+            this.senderbank.Location = new System.Drawing.Point(289, 185);
+            this.senderbank.Name = "senderbank";
+            this.senderbank.Size = new System.Drawing.Size(327, 20);
+            this.senderbank.TabIndex = 2;
             // 
             // senderaddress
             // 
@@ -96,12 +96,12 @@
             this.textBox7.TabIndex = 4;
             this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
-            // textBox1
+            // textIFSC1
             // 
-            this.textBox1.Location = new System.Drawing.Point(289, 395);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(327, 20);
-            this.textBox1.TabIndex = 5;
+            this.textIFSC1.Location = new System.Drawing.Point(289, 395);
+            this.textIFSC1.Name = "textIFSC1";
+            this.textIFSC1.Size = new System.Drawing.Size(327, 20);
+            this.textIFSC1.TabIndex = 5;
             // 
             // Receiverduid
             // 
@@ -112,12 +112,12 @@
             this.Receiverduid.TabIndex = 6;
             this.Receiverduid.SelectedIndexChanged += new System.EventHandler(this.Receiverduid_SelectedIndexChanged);
             // 
-            // recieverpincode
+            // recieverbank
             // 
-            this.recieverpincode.Location = new System.Drawing.Point(848, 185);
-            this.recieverpincode.Name = "recieverpincode";
-            this.recieverpincode.Size = new System.Drawing.Size(327, 20);
-            this.recieverpincode.TabIndex = 7;
+            this.recieverbank.Location = new System.Drawing.Point(848, 185);
+            this.recieverbank.Name = "recieverbank";
+            this.recieverbank.Size = new System.Drawing.Size(327, 20);
+            this.recieverbank.TabIndex = 7;
             // 
             // recieveraddress
             // 
@@ -133,12 +133,12 @@
             this.textBox8.Size = new System.Drawing.Size(327, 20);
             this.textBox8.TabIndex = 9;
             // 
-            // textBox3
+            // textIFSC2
             // 
-            this.textBox3.Location = new System.Drawing.Point(848, 398);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(327, 20);
-            this.textBox3.TabIndex = 10;
+            this.textIFSC2.Location = new System.Drawing.Point(848, 398);
+            this.textIFSC2.Name = "textIFSC2";
+            this.textIFSC2.Size = new System.Drawing.Size(327, 20);
+            this.textIFSC2.TabIndex = 10;
             // 
             // textBox9
             // 
@@ -177,7 +177,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 14;
-            this.label4.Text = "Sender Duid";
+            this.label4.Text = "Sender iFSC";
             // 
             // label5
             // 
@@ -202,18 +202,18 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(147, 191);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 13);
+            this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 17;
-            this.label3.Text = "Sender Pincode";
+            this.label3.Text = "Sender BANK";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(710, 404);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 13);
+            this.label10.Size = new System.Drawing.Size(76, 13);
             this.label10.TabIndex = 18;
-            this.label10.Text = "Reciever Duid";
+            this.label10.Text = "Reciever IFSC";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label7
@@ -230,9 +230,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(710, 188);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(92, 13);
+            this.label6.Size = new System.Drawing.Size(82, 13);
             this.label6.TabIndex = 20;
-            this.label6.Text = "Reciever Pincode";
+            this.label6.Text = "Reciever BANK";
             // 
             // label9
             // 
@@ -248,18 +248,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(710, 107);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.Size = new System.Drawing.Size(76, 13);
             this.label2.TabIndex = 23;
-            this.label2.Text = "Reciever Duid";
+            this.label2.Text = "Reciever IFSC";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(147, 108);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 22;
-            this.label1.Text = "Sender Duid";
+            this.label1.Text = "Sender IFSC";
             // 
             // button3
             // 
@@ -291,15 +291,15 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textIFSC2);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.recieveraddress);
-            this.Controls.Add(this.recieverpincode);
+            this.Controls.Add(this.recieverbank);
             this.Controls.Add(this.Receiverduid);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textIFSC1);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.senderaddress);
-            this.Controls.Add(this.senderpincode);
+            this.Controls.Add(this.senderbank);
             this.Controls.Add(this.senderduid);
             this.Controls.Add(this.button1);
             this.Name = "Existing";
@@ -315,15 +315,15 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox senderduid;
-        private System.Windows.Forms.TextBox senderpincode;
+        private System.Windows.Forms.TextBox senderbank;
         private System.Windows.Forms.TextBox senderaddress;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textIFSC1;
         private System.Windows.Forms.ComboBox Receiverduid;
-        private System.Windows.Forms.TextBox recieverpincode;
+        private System.Windows.Forms.TextBox recieverbank;
         private System.Windows.Forms.TextBox recieveraddress;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textIFSC2;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;

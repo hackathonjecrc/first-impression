@@ -41,19 +41,31 @@ namespace DigiAdresse
             try
             {
                 MySqlCommand cmd = duid1.CreateCommand();
-
+                MySqlCommand cmd1 = duid1.CreateCommand();
                 cmd.CommandType = CommandType.Text;
+                cmd1.CommandType = CommandType.Text;
 
                 cmd.CommandText = "select * from book3 ";
-
+                cmd1.CommandText = "select * from allcolleges";
                 cmd.ExecuteNonQuery();
-
+                cmd1.ExecuteNonQuery();
                 DataTable dt = new DataTable();
-
+                DataTable dt1 = new DataTable();
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-
+                MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
                 da.Fill(dt);
+                da1.Fill(dt1);
+                foreach (DataRow dr in dt1.Rows)
 
+                {
+
+                    Receiverduid.Items.Add(dr["CollegeName"].ToString());
+
+
+
+                    senderduid.Items.Add(dr["CollegeName"].ToString());
+
+                }
                 foreach (DataRow dr in dt.Rows)
 
                 {
@@ -65,7 +77,6 @@ namespace DigiAdresse
                     senderduid.Items.Add(dr["IFSC"].ToString());
 
                 }
-
             }
             catch
             {
@@ -90,33 +101,47 @@ namespace DigiAdresse
             duid1.Open();
 
             MySqlCommand cmd = duid1.CreateCommand();
-
+            MySqlCommand cmd1 = duid1.CreateCommand();
             cmd.CommandType = CommandType.Text;
-
+            cmd1.CommandType = CommandType.Text;
             cmd.CommandText = "select * from Book3 where IFSC='" + senderduid.SelectedItem.ToString() + "'";
-
+            cmd1.CommandText = "select * from allcolleges where CollegeName='" + senderduid.SelectedItem.ToString() + "'";
             cmd.ExecuteNonQuery();
+            cmd1.ExecuteNonQuery();
 
             DataTable dt = new DataTable();
-
+            DataTable dt1 = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-
+            MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
             da.Fill(dt);
-
+            da1.Fill(dt1);
             foreach (DataRow dr in dt.Rows)
 
             {
 
-                textBox3.Text = dr["﻿BANK"].ToString();
+                textIFSC1.Text = dr["﻿BANK"].ToString();
 
                 senderaddress.Text = dr["ADDRESS"].ToString();
 
-                textBox1.Text = dr["BRANCH"].ToString();
+                textIFSC1.Text = dr["BRANCH"].ToString();
 
                 textBox9.Text = dateTimePicker1.Value.ToString();
 
             }
 
+            foreach (DataRow dr in dt1.Rows)
+
+            {
+
+                textIFSC1.Text = dr["﻿CollegeName"].ToString();
+
+                senderaddress.Text = dr["State Name"].ToString();
+
+                textIFSC1.Text = dr["District Name"].ToString();
+
+                textBox9.Text = dateTimePicker1.Value.ToString();
+
+            }
 
 
 
@@ -138,28 +163,44 @@ namespace DigiAdresse
               duid1.Open();
 
             MySqlCommand cmd = duid1.CreateCommand();
-
+            MySqlCommand cmd1 = duid1.CreateCommand();
             cmd.CommandType = CommandType.Text;
+            cmd1.CommandType = CommandType.Text;
+
 
             cmd.CommandText = "select * from Book3 where Name='" + Receiverduid.SelectedItem.ToString() + "'";
 
             cmd.ExecuteNonQuery();
-
+            cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
+            DataTable dt1 = new DataTable();
 
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-
+            MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
             da.Fill(dt);
-
+            da1.Fill(dt1);
             foreach (DataRow dr in dt.Rows)
 
             {
 
-                recieverpincode.Text = dr["NAME"].ToString();
+                recieverbank.Text = dr["NAME"].ToString();
 
                 recieveraddress.Text = dr["ADDRESS"].ToString();
 
-                textBox3.Text = dr["BRANCH"].ToString();
+                textIFSC2.Text = dr["BRANCH"].ToString();
+
+                textBox9.Text = dateTimePicker1.Value.ToString();
+
+            }
+            foreach (DataRow dr in dt1.Rows)
+
+            {
+
+                textIFSC1.Text = dr["﻿CollegeName"].ToString();
+
+                senderaddress.Text = dr["State Name"].ToString();
+
+                textIFSC1.Text = dr["District Name"].ToString();
 
                 textBox9.Text = dateTimePicker1.Value.ToString();
 
@@ -181,19 +222,19 @@ namespace DigiAdresse
 
         private void button2_Click(object sender, EventArgs e)
         {
-            duid.Open();
+            duid1.Open();
 
-            SqlCommand cmd = duid.CreateCommand();
+            MySqlCommand cmd = duid1.CreateCommand();
 
             cmd.CommandType = CommandType.Text;
 
-            cmd.CommandText = "insert into Recieverdb values('" + textBox3.Text + "','" + recieverpincode.Text + "','" + recieveraddress.Text + "','" + textBox8.Text + "','" + textBox1.Text + "','" + senderpincode.Text + "','" + senderaddress.Text + "','" + textBox7.Text + "','" + textBox9.Text + "')";
+            cmd.CommandText = "insert into Recieverdb values('" + textIFSC2.Text + "','" + recieverbank.Text + "','" + recieveraddress.Text + "','" + textBox8.Text + "','" + textIFSC1.Text + "','" + senderbank.Text + "','" + senderaddress.Text + "','" + textBox7.Text + "','" + textBox9.Text + "')";
 
             cmd.ExecuteNonQuery();
 
             MessageBox.Show("Record inserted Succesfully");
 
-            duid.Close();
+            duid1.Close();
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
